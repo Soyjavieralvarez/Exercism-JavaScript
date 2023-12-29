@@ -27,7 +27,7 @@
  * @returns {string}
  */
 export function frontDoorResponse(line) {
-  throw new Error('Remove this line and implement the function');
+  return line[0];
 }
 
 /**
@@ -38,7 +38,28 @@ export function frontDoorResponse(line) {
  * @returns {string} the front door password
  */
 export function frontDoorPassword(word) {
-  throw new Error('Remove this line and implement the function');
+ // toUpperCase para aplicar en mayúscula la primera letra 
+
+ const CAPITALIZE_LETTERS = word.toUpperCase();
+
+ // slice para quedarnos solo con la primera letra 
+
+ const LETTERS = CAPITALIZE_LETTERS.slice(1);
+
+ // nos quedamos con esa posición 
+
+ const FIRST_LETTER = CAPITALIZE_LETTERS[0];
+
+ // toLowerCase para dejar el resto de letras en minúsculas 
+
+ const LETOVER_LETTERS = LETTERS.toLowerCase()
+
+ // encadenamos todo 
+
+ let doorPassword = FIRST_LETTER + LETOVER_LETTERS;
+
+ return doorPassword
+
 }
 
 /**
@@ -49,7 +70,26 @@ export function frontDoorPassword(word) {
  * @returns {string}
  */
 export function backDoorResponse(line) {
-  throw new Error('Remove this line and implement the function');
+  // Utilizamos el método .trim para eliminar los espacios en blanco, tanto al principio como al final
+
+  const RESPONSE_WITHOUT_SPACES = line.trim();
+
+  // length para saber la longitud del string
+
+  let responseLength = RESPONSE_WITHOUT_SPACES.length;
+
+  // Nos quedamos con la última posición de ese string, restando 1
+
+  let lastPosition = responseLength -1;
+
+  // Con el método slice nos quedamos solo con la última letra 
+
+  let lastLetter = RESPONSE_WITHOUT_SPACES.slice(lastPosition);
+
+  return lastLetter
+
+
+  
 }
 
 /**
@@ -60,5 +100,23 @@ export function backDoorResponse(line) {
  * @returns {string} the back door password
  */
 export function backDoorPassword(word) {
-  throw new Error('Remove this line and implement the function');
+
+  // Convertimos la primera letra de la palabra a mayúscula
+  const CAPITALIZE_LETTERS = word.toUpperCase();
+
+  // Nos quedamos con la primera letra 
+
+  const LETTERS = CAPITALIZE_LETTERS.slice(1);
+
+  // Guardamos esa posición 
+
+  const FIRST_LETTER = CAPITALIZE_LETTERS[0];
+
+  // Dejamos el resto en minúscula 
+
+  const LETOVER_LETTERS = LETTERS.toLocaleLowerCase();
+
+  let backDoor = FIRST_LETTER + LETOVER_LETTERS
+
+  return backDoor + ", please"
 }
